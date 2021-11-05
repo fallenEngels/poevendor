@@ -3,7 +3,7 @@
 Are you tired of manually keeping track of collected and missing items for farming Chaos or Regal Orbs in PoE?
 Me too. So I made a small (somewhat horrible) program to make this part of playing more convenient.
 
-I tried to keep the window as small as possible, so it should be usable even on one-screen setups.
+I tried to keep the window as small as possible, so it should be usable even on one-screen setups. Can be forced to always stay on top of other windows, so ith sould even work while playing PoE in fullscreen mode.
 
 PSA: Base Colours for item slots are based on filterbase's standard settings. If you have modified those for your item filter or want different colours, just edit settings.ini with colours of your choice.
 
