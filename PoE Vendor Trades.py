@@ -54,7 +54,7 @@ def fnSetPlus():
 	amul.set(max(amul.get() - 1, 0))
 	ring.set(max(ring.get() - 1, 0))
 	belt.set(max(belt.get() - 1, 0))
-	#fnUpdCollection()
+	fnUpdCollection()
 
 SetText = tk.Label(root, text = "Completed Sets", font = ("helvetica", 15), bg = config["Interface"]["bg_col"], fg = config["Interface"]["tx_col"])
 SetLabel = tk.Label(root, textvariable = sets, font = ('helvetica', 15), bg = config["Interface"]["bg_col"], fg = config["Interface"]["tx_col"])
