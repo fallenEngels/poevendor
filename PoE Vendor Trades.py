@@ -71,7 +71,7 @@ canvas.create_window(220, 17, window = PlusSet)
 ### Collection status and colouration
 coll_stat = [config["Interface"]["cl_low"]] * 8
 def fnUpdCollection():
-	item_coll = [head.get() * 2, chst.get() * 2, weap.get(), hand.get() * 2, feet.get() * 2, amul.get() * 2, ring.get() * 2, belt.get() * 2]
+	item_coll = [head.get() * 2, chst.get() * 2, weap.get(), hand.get() * 2, feet.get() * 2, amul.get() * 2, ring.get(), belt.get() * 2]
 	# get values from all items (* 2) to counteract need for double weapons and decimal points
 	for i in [0,1,2,3,4,5,6,7]: # update coll_stat for each slot if 0 = 2, some = 3, max = 4
 		if item_coll[i] == 0:
@@ -274,6 +274,6 @@ canvas.create_window(199, 182, window = BeltLabel)
 canvas.create_window(180, 182, window = MinusBelt)
 canvas.create_window(220, 182, window = PlusBelt)
 
-#fnUpdCollection()
+fnUpdCollection()
 
 root.mainloop()
