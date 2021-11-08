@@ -1,5 +1,5 @@
 import tkinter as tk
-import sys, configparser
+import configparser
 
 config = configparser.ConfigParser()
 config.read("settings.ini")
@@ -28,6 +28,7 @@ canvas.create_window(65, 207, window = AotCheck)
 canvas.create_window(130, 207, window = AotText)
 
 ### Variables and functions
+# define vars
 sets = tk.IntVar()
 
 head = tk.IntVar()
@@ -39,6 +40,19 @@ amul = tk.IntVar()
 ring = tk.IntVar()
 belt = tk.IntVar()
 
+# load saved values
+sets.set(config["SavedVars"]["sets"])
+
+head.set(config["SavedVars"]["head"])
+chst.set(config["SavedVars"]["chst"])
+weap.set(config["SavedVars"]["weap"])
+hand.set(config["SavedVars"]["hand"])
+feet.set(config["SavedVars"]["feet"])
+amul.set(config["SavedVars"]["amul"])
+ring.set(config["SavedVars"]["ring"])
+belt.set(config["SavedVars"]["belt"])
+
+# updating completed sets
 def fnSetMinus():
 	global sets
 	sets.set(max(sets.get() - 1, 0))
@@ -90,7 +104,7 @@ def fnUpdCollection():
 	BeltLabel.configure(bg = coll_stat[7])
 
 
-# Haven't found a way to package all in one function yet, so for now it's every variable individually
+# Haven't found a way to package all in one function yet, so for now it's every variable individually - update item slots
 def fnHeadMinus():
 	global head
 	head.set(max(head.get() - 1, 0))
@@ -274,6 +288,25 @@ canvas.create_window(199, 182, window = BeltLabel)
 canvas.create_window(180, 182, window = MinusBelt)
 canvas.create_window(220, 182, window = PlusBelt)
 
+### Saving changes on program exit
+def fnSaveItems():
+	f = open("settings.ini", "w+")
+	config.set("SavedVars", "sets", str(sets.get()))
+	config.set("SavedVars", "head", str(head.get()))
+	config.set("SavedVars", "chst", str(chst.get()))
+	config.set("SavedVars", "weap", str(weap.get()))
+	config.set("SavedVars", "hand", str(hand.get()))
+	config.set("SavedVars", "feet", str(feet.get()))
+	config.set("SavedVars", "amul", str(amul.get()))
+	config.set("SavedVars", "ring", str(ring.get()))
+	config.set("SavedVars", "belt", str(belt.get()))
+	config.write(f)
+	f.close()
+	root.destroy()
+
+### Starting program
 fnUpdCollection()
+
+root.protocol("WM_DELETE_WINDOW", fnSaveItems)
 
 root.mainloop()

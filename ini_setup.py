@@ -25,5 +25,12 @@ config["Slots"] = {
     'belt_c': "#FFFFFF", 'belt_t': "black"
 }
 
+config["SavedVars"] = {
+    'sets': "0",
+    'head': "0", 'chst': "0",
+    'weap': "0", 'hand': "0",
+    'feet': "0", 'amul': "0",
+    'ring': "0", 'belt': "0",
+}
 with open('settings.ini', 'w') as configfile:
     config.write(configfile)
