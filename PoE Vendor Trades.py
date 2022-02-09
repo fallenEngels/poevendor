@@ -66,7 +66,7 @@ def fnSetPlus():
 	hand.set(max(hand.get() - 1, 0))
 	feet.set(max(feet.get() - 1, 0))
 	amul.set(max(amul.get() - 1, 0))
-	ring.set(max(ring.get() - 1, 0))
+	ring.set(max(ring.get() - 2, 0))
 	belt.set(max(belt.get() - 1, 0))
 	fnUpdCollection()
 
