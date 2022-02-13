@@ -15,10 +15,10 @@ canvas.pack()
 # Checkbox to display window always on top (default off)
 aotvar = tk.IntVar() # logs state
 def fnAotSwitch():
-	 if (aotvar.get() == 1):
-		 root.attributes('-topmost',True)
-	 else:
-		 root.attributes('-topmost',False)
+	if (aotvar.get() == 1):
+		root.attributes('-topmost',True)
+	else:
+		root.attributes('-topmost',False)
 
 AotText = tk.Label(root, text = "Always on Top", font = ("helvetica", 12), bg = config["Interface"]["bg_col"], fg = config["Interface"]["tx_col"])
 AotCheck = tk.Checkbutton(variable=aotvar, onvalue=1, offvalue=0, command=fnAotSwitch, bg = config["Interface"]["bg_col"])
@@ -88,7 +88,7 @@ def fnUpdCollection():
 	item_coll = [head.get() * 2, chst.get() * 2, weap.get(), hand.get() * 2, feet.get() * 2, amul.get() * 2, ring.get(), belt.get() * 2]
 	# get values from all items (* 2) to counteract need for double weapons and decimal points
 	for i in [0,1,2,3,4,5,6,7]: # update coll_stat for each slot if 0 = 2, some = 3, max = 4
-		if item_coll[i] == 0:
+		if item_coll[i] <= 1:
 			coll_stat[i] = config["Interface"]["cl_low"]
 		elif item_coll[i] == max(item_coll):
 			coll_stat[i] = config["Interface"]["cl_hig"]
